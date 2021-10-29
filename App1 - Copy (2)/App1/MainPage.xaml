@@ -1,0 +1,107 @@
+﻿<Page x:Name="page"
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush/>
+    </Page.Background>
+    <Grid>
+        <Grid Background="Black" x:Name="startPage" Visibility="Visible">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Gamer.gif" Stretch="Uniform"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Stick Man to the Rescue" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100" Width="450" Foreground="#FF563B3B" FontSize="40" FontFamily="Bradley Hand ITC" FontWeight="Bold"/>
+                <Button x:Name="startBtn" Content="Continue" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Bradley Hand ITC" FontSize="25" Foreground="#FF2F0404" Click="startBtn_Click" Height="37" FontWeight="Bold" Width="162" >
+                    <Button.BorderBrush>
+                        <ImageBrush/>
+                    </Button.BorderBrush>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Assets/startBtnImg.gif" Stretch="None" />
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="transitionPage" Background="Black" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/transitionImg.gif" Stretch="Uniform"/>
+                </Grid.Background>
+                <Button x:Name="continueBtn" Content="Continue" Grid.Row="3" Grid.Column="1" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" Click="continueBtn_Click" />
+                <Button x:Name="instructionBtn" Content="Instructions" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Click="instructionBtn_Click"/>
+                <Button x:Name="transitionBackBtn" Content="Back" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="3" Click="transitionBackBtn_Click"/>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="instractionPage" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.7"/>
+            </Grid.Background>
+            <Grid.FocusVisualSecondaryBrush>
+                <ImageBrush/>
+            </Grid.FocusVisualSecondaryBrush>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Instractions" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0" FontFamily="Bradley Hand ITC" Foreground="#FF1F0E0E" FontWeight="Bold"/>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Margin="0,64,0,0" Height="489" Width="1078">
+                    <TextBlock Text="Kyle has compared Cartmen into a character"/>
+                    <TextBlock Text="from family guy and now Cartmen is After Kyle!"/>
+                    <TextBlock Text="Your job is to protect Kyle by collecting him"/>
+                    <TextBlock Text="from his hiding places. He will be hiding in 5"/>
+                    <TextBlock Text="places. Becarful, don't get caught by Cartmen"/>
+                    <TextBlock Text="or else he'll catch Kyle."/>
+                </StackPanel>
+                <Button x:Name="instructionBackBtn" Content="Back" HorizontalAlignment="Center" Grid.Row="2" Click="instructionBackBtn_Click"/>
+            </Grid>
+        </Grid>
+
+        <Canvas x:Name="cnvs" RequestedTheme="Default" Visibility="Collapsed">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Assets/busstop.jpg" Opacity="0.7"/>
+            </Canvas.Background>
+        </Canvas>
+
+        <Grid x:Name="endGrid" Visibility="Collapsed" x:FieldModifier="public">
+            <Image Source="/Assets/cartmenAndKyle.gif" Stretch="Uniform"/>
+            <Image Source="/Assets/Game_Over.png" Height="300" Margin="0,32,0,308"/>
+            <Button x:Name="startOverBtn" Content="Start Over" HorizontalAlignment="Center" VerticalAlignment="Center" Click="startOverBtn_Click"/>
+        </Grid>
+
+        <Grid x:Name="happyEndGrid" Visibility="Collapsed" x:FieldModifier="public">
+            <Image Source="/Assets/kyle_cartmen.gif" />
+            <Image Source="/Assets/Wining.gif" Margin="286,-136,156,282"/>
+            <Button x:Name="startOverBtn2" Content="Start Over" Click="startOverBtn2_Click" Margin="451,0,0,0"/>
+        </Grid>
+    </Grid>
+</Page>
